@@ -2,11 +2,10 @@
 
 Basics Vue & Vuex sample
 
-* [Demo Frontend](https://vuex-start.vercel.app)
-* [JSON Server](https://stream-json-server.herokuapp.com)
+- [Demo Frontend](https://vuex-start.vercel.app)
+- [JSON Server](https://stream-json-server.herokuapp.com)
 
------------------------
-
+---
 
 ## Project setup
 
@@ -46,4 +45,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ![flow](static/flow.png)
 
 ![vuex](static/vuex.png)
-
