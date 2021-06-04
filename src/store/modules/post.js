@@ -10,7 +10,7 @@ export default {
   actions: {
     async fetchPosts(ctx, limit = 10) {
       const res = await fetch(
-        `https://stream-json-server.herokuapp.com/posts?_limit=${limit}`
+        `https://json-server-posts.herokuapp.com/posts?_limit=${limit}`
       );
       const posts = await res.json();
 
