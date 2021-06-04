@@ -31,5 +31,10 @@ export default {
       console.log(state.posts);
       return state.posts;
     },
+    postsCount(state) {
+      console.log(`All posts count:`);
+      console.log(state.posts.length);
+      return state.posts.length;
+    },
   },
 };
