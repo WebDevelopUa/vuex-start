@@ -17,7 +17,7 @@ export default {
   computed: mapGetters(['allPosts']),
   methods: mapActions(['fetchPosts']),
   async mounted() {
-    await this.fetchPosts()
+    await this.fetchPosts(1)
   }
 }
 </script>
