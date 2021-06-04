@@ -1,6 +1,8 @@
+<!-- use dispatch to call fetchPosts actions from store -->
+
 <template>
   <div id="app">
-    <div class="post" v-for="post in posts" :key="post.id">
+    <div class="post" v-for="post in allPosts" :key="post.id">
       <h2>{{ post.title }}</h2>
       <p>{{ post.content }}</p>
     </div>
@@ -10,13 +12,14 @@
 <script>
 
 export default {
-  name: 'Vuex start',
-  data() {
-    return {posts: []}
+  name: 'VuexStart',
+  computed: {
+    allPosts() {
+      return this.$store.getters.allPosts
+    }
   },
   async mounted() {
-    const res = await fetch('https://stream-json-server.herokuapp.com/posts')
-    this.posts = await res.json()
+    await this.$store.dispatch('fetchPosts')
   }
 }
 </script>
