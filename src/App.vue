@@ -10,13 +10,14 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex"
+import {mapGetters, mapActions} from "vuex"
 
 export default {
   name: 'VuexStart',
   computed: mapGetters(['allPosts']),
+  methods: mapActions(['fetchPosts']),
   async mounted() {
-    await this.$store.dispatch('fetchPosts')
+    await this.fetchPosts()
   }
 }
 </script>
