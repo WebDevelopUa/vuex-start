@@ -29,15 +29,17 @@ export default {
     posts: [],
   },
   getters: {
+    validPost(state) {
+      return state.posts.filter((post) => post.title && post.body);
+    },
     allPosts(state) {
       console.log(`All posts state:`);
       console.log(state.posts);
       return state.posts;
     },
-    postsCount(state) {
-      console.log(`All posts count:`);
-      console.log(state.posts.length);
-      return state.posts.length;
+    postsCount(state, getters) {
+      console.log(`Valid posts count: ${getters.validPost.length}`);
+      return getters.validPost.length;
     },
   },
 };

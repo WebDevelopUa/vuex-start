@@ -22,8 +22,8 @@ yarn serve
 
 App running at:
 
-- Local: [localhost:8080/](http://localhost:8080/)
-- Network: [192.168.1.103:8080/](http://192.168.1.103:8080/)
+- Local: [localhost:8080](http://localhost:8080/)
+- Network: [192.168.1.103:8080](http://192.168.1.103:8080/)
 
 ### Compiles and minifies for production
 
@@ -45,3 +45,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ![flow](static/flow.png)
 
 ![vuex](static/vuex.png)
+
+# links
+
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+- [Vue Performance Devtool](https://chrome.google.com/webstore/detail/vue-performance-devtool/koljilikekcjfeecjefimopfffhkjbne)

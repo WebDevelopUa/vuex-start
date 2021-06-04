@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submit">
-    <input type="text" required placeholder="Enter Title" v-model="title"/>
-    <input type="text" required placeholder="Enter Body Text" v-model="body"/>
+    <input type="text"   placeholder="Enter Title" v-model="title"/>
+    <input type="text"   placeholder="Enter Body Text" v-model="body"/>
     <button type="submit">Add new post</button>
   </form>
 </template>
