@@ -1,14 +1,14 @@
 <template>
-  <form @submit.prevent="submit">
-    <input type="text"   placeholder="Enter Title" v-model="title"/>
-    <input type="text"   placeholder="Enter Body Text" v-model="body"/>
+  <form @submit.prevent="onSubmit">
+    <input type="text" placeholder="Enter Title" v-model="title"/>
+    <input type="text" placeholder="Enter Body Text" v-model="body"/>
     <button type="submit">Add new post</button>
   </form>
 </template>
 
 <script>
 
-import {mapMutations} from "vuex"
+import {mapActions} from "vuex"
 
 export default {
   name: "PostForm",
@@ -19,15 +19,31 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['createPost']),
-    submit() {
-      this.createPost({
-        title: this.title,
-        body: this.body,
-        id: Date.now()
-      })
+
+    // using action to create post on remote JSON server
+    ...mapActions(['addPost']),
+    onSubmit() {
+      this.addPost({
+            title: this.title,
+            body: this.body
+          }
+      )
       this.title = this.body = ''
     }
+
+
+    // using mutation to create post to App state
+    // ...mapMutations(['createPost']),
+    // onSubmit() {
+    //   this.createPost({
+    //     title: this.title,
+    //     body: this.body,
+    //     id: Date.now()
+    //   })
+    //   this.title = this.body = ''
+    // }
+
+
   }
 }
 </script>

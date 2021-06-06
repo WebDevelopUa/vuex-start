@@ -3,11 +3,16 @@
 <template>
   <div id="app">
     <PostForm/>
-    <h1>Posts count: {{postsCount}}</h1>
+    <h1>Posts count: {{ postsCount }}</h1>
     <div class="post" v-for="post in validPost" :key="post.id">
       <h2>{{ post.title }}</h2>
-      <p>{{ post.body}}</p>
+      <p>{{ post.body }}</p>
     </div>
+    <hr />
+    <p>
+      Fetch & Post data to Backend API: <a href="https://json-server-posts.herokuapp.com/posts" target="_blank" rel="noreferrer nofollow noopener">JSON Server, Posts</a>
+    </p>
+
   </div>
 </template>
 
@@ -15,15 +20,18 @@
 import {mapGetters, mapActions} from "vuex"
 import PostForm from "./components/PostForm";
 
+// Set posts limit manually (by default: 3 posts)
+let postLimit = 90;
+
 export default {
   name: 'VuexStart',
   computed: mapGetters(['validPost', 'postsCount']),
   methods: mapActions(['fetchPosts']),
-  components:{
+  components: {
     PostForm
   },
   async mounted() {
-    await this.fetchPosts(9)
+    await this.fetchPosts(postLimit)
   }
 }
 </script>

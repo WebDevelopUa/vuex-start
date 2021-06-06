@@ -6,19 +6,39 @@
  * apply mutation through context (ctx.commit()) in actions
  */
 
+const baseUrl = `https://json-server-posts.herokuapp.com/posts`;
+
 export default {
   actions: {
-    async fetchPosts(ctx, limit = 10) {
-      const res = await fetch(
-        `https://json-server-posts.herokuapp.com/posts?_limit=${limit}`
-      );
+    async fetchPosts(ctx, limit = 3) {
+      const res = await fetch(`${baseUrl}?_limit=${limit}`);
       const posts = await res.json();
 
-      ctx.commit("updatePosts", posts);
+      ctx.commit("fetchPosts", posts);
+      console.log(`All Posts are Fetched!`);
+    },
+    async addPost(ctx, { title, body }) {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          body,
+        }),
+      };
+      const response = await fetch(baseUrl, requestOptions).then((response) =>
+        response.json()
+      );
+
+      ctx.commit("createPost", response);
+
+      console.log(
+        `New Post with title: "${title}" | body: "${body}" is Created!`
+      );
     },
   },
   mutations: {
-    updatePosts(state, posts) {
+    fetchPosts(state, posts) {
       state.posts = posts;
     },
     createPost(state, newPost) {
